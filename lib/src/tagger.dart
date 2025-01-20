@@ -895,7 +895,7 @@ class FlutterTaggerController extends TextEditingController {
   FlutterTaggerController({String? text}) : super(text: text);
 
   late final Trie _trie = Trie();
-  Map<TaggedText, String> _tags = {};
+  final Map<TaggedText, String> _tags = {};
 
   Map<TaggedText, String> get realTags => _tags;
 
@@ -916,7 +916,7 @@ class FlutterTaggerController extends TextEditingController {
   }
 
   void _setTags(Map<TaggedText, String> tags) {
-    _tags = tags;
+    _tags.addAll(tags);
   }
 
   void _setDeferCallback(Function callback) {
